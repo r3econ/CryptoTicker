@@ -13,6 +13,7 @@
 		86EDB01F1FBE22E600234FB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86EDB01E1FBE22E600234FB4 /* Assets.xcassets */; };
 		86EDB02A1FBE22E600234FB4 /* CryptoTickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDB0291FBE22E600234FB4 /* CryptoTickerTests.swift */; };
 		86EDB0351FBE22E600234FB4 /* CryptoTickerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDB0341FBE22E600234FB4 /* CryptoTickerUITests.swift */; };
+		86EDB0431FBE292A00234FB4 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDB0421FBE292A00234FB4 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		86EDB0301FBE22E600234FB4 /* CryptoTickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoTickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EDB0341FBE22E600234FB4 /* CryptoTickerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTickerUITests.swift; sourceTree = "<group>"; };
 		86EDB0361FBE22E600234FB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86EDB0421FBE292A00234FB4 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				86EDB01B1FBE22E600234FB4 /* Main.storyboard */,
 				86EDB01E1FBE22E600234FB4 /* Assets.xcassets */,
 				86EDB0201FBE22E600234FB4 /* Info.plist */,
+				86EDB0421FBE292A00234FB4 /* Model.swift */,
 			);
 			path = CryptoTicker;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86EDB0431FBE292A00234FB4 /* Model.swift in Sources */,
 				86EDB01A1FBE22E600234FB4 /* ViewController.swift in Sources */,
 				86EDB0181FBE22E600234FB4 /* AppDelegate.swift in Sources */,
 			);
