@@ -8,16 +8,6 @@
 
 import Foundation
 
-struct TickerList: Codable {
-    var usd: TickerItem
-    var eur: TickerItem
-    
-    enum CodingKeys : String, CodingKey {
-        case usd = "USD"
-        case eur = "EUR"
-    }
-}
-
 struct TickerItem: Codable {
     var recentMarketPrice: Double
     var currencySymbol: String
