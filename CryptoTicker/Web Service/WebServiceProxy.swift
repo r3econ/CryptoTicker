@@ -12,30 +12,49 @@ enum WebserviceError: Error {
     case noDataReceived
 }
 
+/// Class representing web service interface
 class WebServiceProxy {
     
+    /// Generic request failure handler
     typealias FailureHandler = ((Error)->())
+    
+    /// Generic request success handler
     typealias SuccessHandler<Value> = ((Value)->())
     
-    func getObject<Value: Decodable>(at url: URL, success:@escaping SuccessHandler<Value>, failure: @escaping FailureHandler) {
+    /// Performs GET request and decodes response trying to create an object
+    func getObject<Value: Decodable>(at url: URL,
+                                     success:@escaping SuccessHandler<Value>,
+                                     failure: @escaping FailureHandler) {
+        // Create data task
         URLSession.shared.dataTask(with: url) { (data, response, error) in
+            // Handle error
             guard error == nil else {
+                // Run failure handler on the main thread
                 DispatchQueue.main.async {
                     failure(error!)
                 }
                 return
             }
             
+            // No data received
             guard let data = data else {
-                failure(WebserviceError.noDataReceived)
+                // Run failure handler on the main thread
+                DispatchQueue.main.async {
+                    failure(WebserviceError.noDataReceived)
+                }
                 return
             }
             
-            let decoder = JSONDecoder()
-            let decodedObject = try! decoder.decode(Value.self, from: data)
-            
-            DispatchQueue.main.async {
-                success(decodedObject)
+            // Decode the response
+            do {
+                let decodedObject = try JSONDecoder().decode(Value.self, from: data)
+                DispatchQueue.main.async {
+                    success(decodedObject)
+                }
+            } catch let error {
+                DispatchQueue.main.async {
+                    failure(error)
+                }
             }
             }.resume()
     }
