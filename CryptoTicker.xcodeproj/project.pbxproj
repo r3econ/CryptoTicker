@@ -18,6 +18,7 @@
 		86EDB0471FC2391800234FB4 /* WebServiceProxy+Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDB0461FC2391800234FB4 /* WebServiceProxy+Ticker.swift */; };
 		86EDB04B1FC2398900234FB4 /* TickerList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDB04A1FC2398900234FB4 /* TickerList.swift */; };
 		86EDB04E1FC360E800234FB4 /* ticker_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 86EDB04D1FC360E800234FB4 /* ticker_response.json */; };
+		86EDB0511FC3762900234FB4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDB0501FC3762900234FB4 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		86EDB0461FC2391800234FB4 /* WebServiceProxy+Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebServiceProxy+Ticker.swift"; sourceTree = "<group>"; };
 		86EDB04A1FC2398900234FB4 /* TickerList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickerList.swift; sourceTree = "<group>"; };
 		86EDB04D1FC360E800234FB4 /* ticker_response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ticker_response.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
+		86EDB0501FC3762900234FB4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		86EDB04C1FC239BD00234FB4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				86EDB0501FC3762900234FB4 /* SettingsViewController.swift */,
 				86EDB0191FBE22E600234FB4 /* MainViewController.swift */,
 			);
 			path = "View Controllers";
@@ -305,6 +308,7 @@
 			files = (
 				86EDB0471FC2391800234FB4 /* WebServiceProxy+Ticker.swift in Sources */,
 				86EDB0431FBE292A00234FB4 /* TickerItem.swift in Sources */,
+				86EDB0511FC3762900234FB4 /* SettingsViewController.swift in Sources */,
 				86EDB0451FC2348C00234FB4 /* WebServiceProxy.swift in Sources */,
 				86EDB01A1FBE22E600234FB4 /* MainViewController.swift in Sources */,
 				86EDB0181FBE22E600234FB4 /* AppDelegate.swift in Sources */,
