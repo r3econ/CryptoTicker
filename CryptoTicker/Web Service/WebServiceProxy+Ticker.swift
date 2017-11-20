@@ -8,9 +8,12 @@
 
 import Foundation
 
+/// Enum describing web service enpoints
 enum WebServiceURL: String {
+    /// Endpoint with ticker list
     case tickerList = "https://blockchain.info/ticker"
     
+    /// Returns endpoint url
     func url() -> URL {
         return URL(string: self.rawValue)!
     }
@@ -20,9 +23,9 @@ enum WebServiceURL: String {
 
 extension WebServiceProxy {
     
+    /// Performs GET ticker list request
     func getTicker(success:@escaping SuccessHandler<TickerList>, failure: @escaping FailureHandler) {
-        let url = WebServiceURL.tickerList.url()
-        self.getObject(at: url, success: success, failure: failure)
+        self.getObject(at: WebServiceURL.tickerList.url(), success: success, failure: failure)
     }
     
 }
