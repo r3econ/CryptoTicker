@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Item in the ticker list
 struct TickerItem: Codable {
     var recentMarketPrice: Double
     var currencySymbol: String

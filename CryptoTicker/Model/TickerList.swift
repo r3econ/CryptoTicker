@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Main object modelling the ticker list
 struct TickerList: Codable {
     var usd: TickerItem
     var eur: TickerItem

@@ -48,10 +48,12 @@ class WebServiceProxy {
             // Decode the response
             do {
                 let decodedObject = try JSONDecoder().decode(Value.self, from: data)
+                // Call success handler
                 DispatchQueue.main.async {
                     success(decodedObject)
                 }
             } catch let error {
+                // Run failure handler on the main thread
                 DispatchQueue.main.async {
                     failure(error)
                 }
