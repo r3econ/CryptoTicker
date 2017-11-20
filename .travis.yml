@@ -1,0 +1,4 @@
+language: swift
+xcode_project: CryptoTicker.xcodeproj
+xcode_scheme: CryptoTickerTests
+osx_image: xcode9
