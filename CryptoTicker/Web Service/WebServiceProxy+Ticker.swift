@@ -8,12 +8,20 @@
 
 import Foundation
 
+enum WebServiceURL: String {
+    case tickerList = "https://blockchain.info/ticker"
+    
+    func url() -> URL {
+        return URL(string: self.rawValue)!
+    }
+}
+
 // MARK: - Ticker
 
 extension WebServiceProxy {
     
     func getTicker(success:@escaping SuccessHandler<TickerList>, failure: @escaping FailureHandler) {
-        let url = URL(string:"https://blockchain.info/ticker")!
+        let url = WebServiceURL.tickerList.url()
         self.getObject(at: url, success: success, failure: failure)
     }
     
