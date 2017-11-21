@@ -10,10 +10,17 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    /// Time interval between ticker updates
+    private let tickerUpdateInterval: TimeInterval = 30
+    
     /// Label showing recent market price
     @IBOutlet var valueLabel: UILabel!
+    /// Label showing error message
     @IBOutlet var errorLabel: UILabel!
 
+    /// Timer used for updating the ticker
+    private var updateTimer: Timer?
+    
     /// Ticker list
     private var tickerList: TickerList? {
         didSet {
@@ -29,30 +36,25 @@ class MainViewController: UIViewController {
 
         // Get the ticker
         self.performGetTickerListRequest()
+        
+        // Schedule timer
+        self.updateTimer = Timer.scheduledTimer(withTimeInterval: self.tickerUpdateInterval, repeats: true, block:{ [weak self] _ in
+            // Get the ticker
+            self?.performGetTickerListRequest()
+        })
     }
     
     /// Performs request to get ticker list
     private func performGetTickerListRequest() {
         // Call web service
         self.webService.getTicker(success: { [weak self] tickerList in
-            self?.valueLabel.text = String(format: "%@%.0f", tickerList.eur.currencySymbol, tickerList.eur.recentMarketPrice)
+            self?.tickerList = tickerList
         }, failure: { [weak self] error in
-            self?.valueLabel.text = "error"
+            self?.updateErrorLabel(with: error)
         })
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        // Pass the ticker when showing settings
-        guard segue.destination is SettingsViewController else {
-            return
-        }
-        
-        let settingsViewController = segue.destination as! SettingsViewController
-        settingsViewController.tickerList = self.tickerList
-    }
-    
+    /// Update value label
     private func updateValueLabel() {
         guard self.isViewLoaded else {
             return
@@ -65,6 +67,16 @@ class MainViewController: UIViewController {
         
         self.valueLabel.isHidden = false
         self.valueLabel.text = String(format: "%@%.0f", tickerList.eur.currencySymbol, tickerList.eur.recentMarketPrice)
+    }
+    
+    /// Update error label
+    private func updateErrorLabel(with error: Error) {
+        guard self.isViewLoaded else {
+            return
+        }
+        
+        self.errorLabel.isHidden = false
+        self.errorLabel.text = error.localizedDescription
     }
     
 }
