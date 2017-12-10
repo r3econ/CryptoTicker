@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/r3econ/CryptoTicker.svg?branch=master)](https://travis-ci.org/r3econ/CryptoTicker)
 [![License](https://img.shields.io/badge/license-GNU%20GPLv3-brightgreen.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 ![Platform](https://img.shields.io/badge/platform-tvos-lightgrey.svg)
+[![saythanks.io](https://img.shields.io/badge/saythanks.io-now-1EAEDB.svg)](https://saythanks.io/to/r3econ)
 
 # CryptoTicker
 Simple `tvOS` app showing most recent bitcoin price. The app fetches current bitcoin exchange rate from public [Blockchain API](https://blockchain.info/api). Price is updated every `30s`.
